@@ -526,3 +526,72 @@ ul.chips li { padding: 6px 12px; }
 .books-list img { width: 20px; height: 20px; flex-shrink: 0; }
 .books-list a { text-decoration: none; color: inherit; font-weight: 500; }
 .books-list a:hover { text-decoration: underline; color: #2e8b57; }
+
+
+/* === Additions: Blinkable green tabs + revolving halo around portrait === */
+
+/* 1) Blinkable / glowy green tabs (btn-cta and btn-primary) */
+@keyframes blinkGlow {
+  0%   { box-shadow: 0 0 0 rgba(34,197,94,0.00), 0 0 0 rgba(14,165,233,0.00); filter: saturate(1); }
+  50%  { box-shadow: 0 0 24px rgba(34,197,94,0.35), 0 0 36px rgba(14,165,233,0.28); filter: saturate(1.15); }
+  100% { box-shadow: 0 0 0 rgba(34,197,94,0.00), 0 0 0 rgba(14,165,233,0.00); filter: saturate(1); }
+}
+.btn-cta,
+.btn-primary{
+  position: relative;
+  isolation: isolate;                 /* keep glow inside stacking context */
+  animation: blinkGlow 2.8s ease-in-out infinite;
+}
+
+/* subtle gradient aura ring around buttons */
+.btn-cta::after,
+.btn-primary::after{
+  content:"";
+  position:absolute; inset:-3px;
+  border-radius:12px;
+  background: radial-gradient(120% 120% at 50% -10%,
+    rgba(34,197,94,.28), rgba(14,165,233,.22), transparent 60%);
+  filter: blur(8px);
+  opacity:.0;                         /* default off to keep it tasteful */
+  z-index:-1;
+  pointer-events:none;
+  transition: opacity .25s ease;
+}
+.btn-cta:hover::after,
+.btn-primary:hover::after{ opacity:.9; }
+
+
+/* 2) Revolving circle (halo) around the profile picture */
+/* No HTML edit needed; uses a pseudo-element on .portrait-wrap */
+@keyframes spinHalo {
+  from { transform: rotate(0deg) scale(1); }
+  to   { transform: rotate(360deg) scale(1); }
+}
+.portrait-wrap{ position:relative; }
+.portrait-wrap::after{
+  content:"";
+  position:absolute;
+  inset:-16px;                         /* sits just outside the white border */
+  border-radius:50%;
+  pointer-events:none;
+  z-index:2;                           /* above dashed rings, below any overlays */
+  background:
+    conic-gradient(from 0deg,
+      rgba(14,165,233,.0) 0deg,
+      rgba(14,165,233,.45) 30deg,
+      rgba(34,197,94,.0) 60deg,
+      rgba(34,197,94,.45) 90deg,
+      rgba(99,102,241,.0) 120deg,
+      rgba(99,102,241,.40) 150deg,
+      transparent 210deg);
+  /* carve out middle to look like a ring */
+  -webkit-mask:
+    radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0);
+          mask:
+    radial-gradient(farthest-side, transparent calc(100% - 3px), #000 0);
+  animation: spinHalo 20s linear infinite;
+  opacity:.9;
+  filter: drop-shadow(0 0 10px rgba(14,165,233,.35));
+}
+
+/* keep existing floatPic as-is (no change) */
