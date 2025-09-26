@@ -1,0 +1,528 @@
+:root{
+  --bg:#f1fbf8;
+  --ink:#0b1f29;
+  --muted:#2c4b57;
+  --green:#22c55e;
+  --blue:#0ea5e9;
+  --indigo:#6366f1;
+  --teal:#14b8a6;
+  --card:#ffffff;
+  --shadow:0 20px 60px rgba(2, 24, 34, .10);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(60% 50% at 20% 0%, rgba(20,200,170,.18), transparent 50%),
+    radial-gradient(60% 50% at 80% 10%, rgba(14,165,233,.14), transparent 55%),
+    linear-gradient(180deg, #f7fffe, #ecfbf7 28%, #eaf7ff 100%);
+}
+
+/* === Live background canvas === */
+#live-bg{
+  position:fixed; inset:0; z-index:-2;
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(20,200,170,.08), transparent 60%),
+              radial-gradient(1200px 800px at 80% 0%, rgba(14,165,233,.08), transparent 60%);
+}
+
+/* NAVBAR */
+.nav{ position:sticky; top:0; backdrop-filter:saturate(1.5) blur(6px); background:rgba(255,255,255,.75); border-bottom:1px solid rgba(15,50,70,.08); z-index:20 }
+.nav-inner{ max-width:1100px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; justify-content:space-between }
+.brand{ font-weight:800; text-decoration:seagreen; color:seagreen; font-size:1.55rem }
+.nav-links{ display:flex; gap:18px; flex-wrap:wrap }
+.nav-links .nl{ text-decoration:none; color:lightseagreen; padding:8px 6px; border-radius:10px; transition:background .2s ease, transform .2s ease }
+.nav-links .nl:hover{ background:rgba(14,165,233,.12); transform:translateY(-1px) }
+
+/* HERO */
+.hero-2col{ max-width:1100px; margin:28px auto 18px; padding:12px 16px; display:grid; grid-template-columns: 1.15fr .85fr; gap:24px; align-items:center }
+@media (max-width:980px){ .hero-2col{ grid-template-columns:1fr; gap:16px } }
+
+.pill{ display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; background:linear-gradient(90deg,rgba(20,200,170,.16), rgba(99,102,241,.16)); color:#0f3a45; font-weight:600; border:1px solid rgba(20,120,120,.12) }
+.float-slow{ animation: floatY 6s ease-in-out infinite }
+.hero-left h1{ margin:10px 0 8px; font-size: clamp(2rem, 4.6vw, 3.6rem); line-height:1.08; font-weight:800; letter-spacing:-.02em }
+.hero-left h1 span{ color:#0b7e5b; }
+.glow-text{ position:relative; }
+.glow-text::after{
+  content:""; position:absolute; inset:auto 0 -6px 0; height:2px; background:linear-gradient(90deg, var(--blue), var(--green), var(--indigo));
+  filter:blur(1px); opacity:.55; border-radius:2px; animation: shimmer 3.6s linear infinite;
+}
+@keyframes shimmer{ 0%{transform:translateX(-20%)} 100%{transform:translateX(120%)} }
+
+.lede{ margin:0 0 8px 0; font-size: clamp(1.1rem, 2.4vw, 1.5rem); color:#153b46 }
+.hl{ color:#0b7e5b }
+.blurb{ margin:8px 0 14px; color:#31515d; max-width:56ch }
+
+.cta-row{ display:flex; gap:12px; flex-wrap:wrap }
+.cta-row.secondary{ margin-top:10px }
+.btn{ display:inline-block; text-decoration:none; font-weight:700; padding:12px 16px; border-radius:12px; border:1px solid transparent; transition:transform .12s ease, box-shadow .2s ease, background .2s ease; box-shadow: var(--shadow) }
+.btn:hover{ transform: translateY(-2px) }
+.btn-primary{ background: linear-gradient(90deg, #0ea5e9, #22c55e); color:#fff }
+.btn-outline{ background:#fff; color:#0c3b45; border-color: rgba(15,90,100,.18) }
+.btn-ghost{ background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65)); color:#0c3b45; border-color: rgba(15,90,100,.12) }
+
+/* Portrait + stats */
+.hero-right{ display:grid; gap:12px; justify-items:center }
+.float-medium{ animation: floatY 5.5s ease-in-out infinite }
+.portrait-wrap{ position:relative; width: 260px; aspect-ratio:1/1; border-radius:50%; display:grid; place-items:center; background: radial-gradient(circle at 35% 25%, #f5ffff, #eaf6ff 60%, #e5f7ef 100%); box-shadow: var(--shadow) }
+
+.ring{ position:absolute; inset:0; border-radius:50%; pointer-events:none; }
+
+
+
+
+@keyframes floatY{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-10px) }
+  100%{ transform: translateY(0) }
+}
+@keyframes spin{ to{ transform: rotate(360deg) scale(var(--s,1)) } }
+
+.stat-row{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; width:100%; max-width:440px }
+.stat{ background: var(--card); border:1px solid rgba(20,70,90,.08); border-radius:14px; box-shadow: var(--shadow); padding:12px; display:grid; justify-items:center;
+  transition: transform .15s ease, box-shadow .2s ease; animation: floatY 6.6s ease-in-out infinite }
+.stat:hover{ transform: translateY(-4px) scale(1.02); box-shadow: 0 24px 60px rgba(2,24,34,.14) }
+.stat-emoji{ font-size:20px }
+.stat-label{ font-size:.9rem; color:#2b4a56 }
+.stat-num{ font-size:1.4rem; font-weight:800; color:#0b1f29 }
+
+/* Staggered float for stats */
+.float-delay-1{ animation-delay:.1s }
+.float-delay-2{ animation-delay:.4s }
+.float-delay-3{ animation-delay:.7s }
+
+.contact-mini{ background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.7)); border:1px solid rgba(20,70,90,.08); border-radius:14px; box-shadow: var(--shadow); padding:12px 14px; width:100%; max-width:440px; color:#1f3c47; animation: floatY 7.5s ease-in-out infinite }
+.contact-mini a{ color:#0b7e5b; text-decoration:none; font-weight:600 }
+.contact-mini a:hover{ text-decoration:underline }
+
+/* Placeholder sections */
+.placeholder{ max-width:1100px; margin:40px auto; padding:0 16px }
+.placeholder h2{ margin:.2rem 0 .6rem; font-size:1.6rem }
+.placeholder p{ margin:.2rem 0 0; color:#2a4b57 }
+
+/* Contact section */
+.contact-section{ background: linear-gradient(180deg, #f6fffe, #eefaff); padding:40px 0; margin-top:20px; border-top:1px solid rgba(15,50,70,.06) }
+.contact-card{ max-width:900px; margin:0 auto; background:#fff; border:1px solid rgba(15,50,70,.08); border-radius:18px; padding:18px; box-shadow: var(--shadow); transform: translateZ(0) }
+.contact-card h2{ margin:.2rem 0 1rem }
+.grid{ display:grid; grid-template-columns: 1fr 1fr; gap:12px }
+@media (max-width:720px){ .grid{ grid-template-columns:1fr } }
+label{ display:grid; gap:6px; color:#21424f; font-weight:600 }
+input, textarea{ border:1px solid rgba(15,60,80,.18); border-radius:12px; padding:10px 12px; font:inherit; color:var(--ink) }
+textarea{ resize:vertical }
+.direct{ margin-top:10px; color:#2c4b57 }
+
+/* Footer */
+.foot{ text-align:center; color:#2a4b57; padding:18px 12px 34px }
+
+/* Scroll reveal */
+.reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease }
+.reveal.in{ opacity:1; transform:none }
+.reveal-up{ opacity:0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease }
+.reveal-up.in{ opacity:1; transform:none }
+
+/* Reduce motion safety */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important }
+  #live-bg{ display:none }
+}
+
+/* --- User-requested changes --- */
+.float-medium{ animation: none !important; }           /* stop container bobbing */
+      /* stop portrait bobbing */
+.stat{ animation: none !important; }                   /* stop stat cards bobbing */
+.contact-mini{ animation: none !important; }           /* stop contact mini bobbing */
+
+/* Make the underline under the name static (no shimmer) */
+.glow-text::after{ animation: none !important; opacity:.45; }
+
+/* Disable tilt/parallax transforms entirely */
+[data-tilt]{ transform: none !important; will-change: auto !important; }
+
+/* === Tweaks per user request (static underline + remove floating from boxes) === */
+
+/* Make the underline under the name fixed (no shimmer, no motion) */
+.glow-text{ position: relative; }
+.glow-text::after{
+  animation: none !important;
+  background: linear-gradient(90deg, var(--blue), var(--green), var(--indigo)) !important;
+  opacity: .65 !important;
+  height: 3px !important;
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -6px !important;
+}
+
+/* Remove floating effects from all boxes */
+.float-slow{ animation: none !important; }       /* badges/pills */
+.float-medium{ animation: none !important; }     /* hero right container */
+/* portrait */
+.stat{ animation: none !important; }             /* stat cards */
+.contact-mini{ animation: none !important; }     /* small contact box */
+
+/* === Additional fixes (no floating, static underline, no hover lift, no reveal) === */
+
+/* Make the H1 and underline measure to text width and stay static */
+.hero-left h1, .glow-text { display:inline-block !important; }
+.glow-text::after{
+  animation: none !important;
+  background: linear-gradient(90deg, var(--blue), var(--green), var(--indigo)) !important;
+  opacity: .7 !important;
+  height: 3px !important;
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -8px !important;
+}
+
+/* Remove all floating animations from boxes and related UI */
+.float-slow, .float-medium, .stat, .contact-mini, .pill, 
+
+/* Disable hover lifts on buttons, stats, and nav links */
+.btn:hover, .stat:hover, .nav-links .nl:hover { 
+  transform: none !important; 
+  box-shadow: var(--shadow) !important; 
+}
+
+/* Disable scroll reveal animations entirely */
+.reveal, .reveal-up { 
+  opacity: 1 !important; 
+  transform: none !important; 
+  transition: none !important; 
+}
+
+/* Kill the animated pseudo-element completely */
+.glow-text::after{
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  animation-name: none !important;
+  animation-play-state: paused !important;
+}
+
+/* Add a static gradient underline via border-image */
+.glow-text{
+  position: relative !important;
+  padding-bottom: 10px !important;
+  border-bottom: 3px solid transparent !important;
+  border-image: linear-gradient(90deg, var(--blue), var(--green), var(--indigo)) 1 !important;
+}
+
+
+/* ==== HARD STOP: Underline must be static (no animation) ==== */
+.glow-text::after{
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  animation-name: none !important;
+  animation-play-state: paused !important;
+}
+.glow-text{
+  position: relative !important;
+  padding-bottom: 10px !important;
+  border-bottom: 3px solid #0ea5e9 !important; /* simple solid line */
+  border-image: none !important;
+}
+
+/* Remove all float animations from boxes */
+.float-slow, .float-medium, .stat, .contact-mini, 
+
+/* Optional: disable hover lift and reveal to ensure nothing "moves" */
+.btn:hover, .stat:hover, .nav-links .nl:hover{ transform:none !important; box-shadow: var(--shadow) !important; }
+.reveal, .reveal-up{ opacity:1 !important; transform:none !important; transition:none !important; }
+
+
+
+/* soft amber */
+  color: #92400e;               /* deep amber text */
+  border-color: #f59e0b;
+}
+.btn-ghost {
+  background: #e0f2fe;          /* soft blue */
+  color: #075985;               /* deep blue text */
+  border-color: #38bdf8;
+}
+
+
+
+/* soft amber */
+  color: #92400e;
+  border-color: #f59e0b;
+}
+.hero-2col .btn-ghost {
+  background: #e0f2fe;   /* soft blue */
+  color: #075985;
+  border-color: #38bdf8;
+}
+/* Keep .btn-primary (Hire Me) unchanged */
+
+
+
+/* === Two-column content layout for inner sections === */
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:18px;align-items:start}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+.sidecard{background:#fff;border:1px solid rgba(15,50,70,.08);border-radius:14px;box-shadow:var(--shadow);padding:14px}
+.sidecard .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.sidecard .kv div{background:linear-gradient(180deg,#f7fffe,#eefaff);border:1px solid rgba(15,50,70,.08);border-radius:12px;padding:10px;text-align:center}
+.wfull{display:block;width:100%;text-align:center}
+/* lists */
+ul.check{padding-left:1rem;list-style:none}
+ul.check li{margin:.4rem 0;position:relative;padding-left:1.3rem}
+ul.check li::before{content:"✔";position:absolute;left:0;top:0;color:#0b7e5b}
+/* timeline */
+ul.timeline{list-style:none;margin:0;padding:0;border-left:3px solid rgba(14,165,233,.25);padding-left:14px}
+ul.timeline li{position:relative;margin:0 0 12px 0}
+ul.timeline .dot{position:absolute;left:-19px;top:.3rem;width:10px;height:10px;background:#0ea5e9;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 3px rgba(14,165,233,.25)}
+ul.timeline .tl-body h3{margin:.1rem 0 .1rem;font-size:1.05rem}
+/* chips */
+ul.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+ul.chips li{background:#e0f2fe;border:1px solid #b9e6fe;border-radius:999px;padding:6px 10px;font-weight:600;color:#075985}
+/* cards for certificates */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid rgba(15,50,70,.08);border-radius:14px;box-shadow:var(--shadow);padding:12px}
+.card h3{margin:.2rem 0 .3rem}
+
+
+/* === Sidecard spacing & button polish (UI fix) === */
+.sidecard p { margin: 0 0 10px 0; }
+.sidecard .kv { margin-bottom: 12px; }
+.sidecard .chips { margin-bottom: 10px; }
+.sidecard .btn,
+.sidecard a.btn { 
+  display: block; 
+  width: 100%; 
+  text-align: center; 
+  margin-top: 12px;              /* space from content above */
+  box-shadow: none;              /* flatter inside card */
+}
+.sidecard .btn + .btn { margin-top: 8px; }  /* if stacked */
+
+/* Tighter rounded border and subtle hover for hero-secondary style buttons */
+.btn-outline, .btn-ghost {
+  border-radius: 10px;
+}
+.btn-outline:hover, .btn-ghost:hover {
+  filter: brightness(0.97);
+}
+
+/* Ensure list of chips doesn't crowd the button */
+ul.chips { gap: 10px; }
+ul.chips li { padding: 6px 12px; }
+
+/* Card padding breathing room */
+.sidecard { padding-bottom: 16px; }
+
+.glow-text::after {
+  content:""; 
+  position:absolute; 
+  inset:auto 0 -6px 0; 
+  height:2px; 
+  background:linear-gradient(90deg, var(--blue), var(--green), var(--indigo));
+  filter:blur(1px); 
+  opacity:.55; 
+  border-radius:2px; 
+  animation: shimmer 3.6s linear infinite;
+}
+
+
+/* === Anchor scroll fix: ensure sections aren't hidden under sticky nav === */
+:root { --nav-offset: 86px; }
+#research, #pubs, #education, #experience, #certs, #contact { 
+  scroll-margin-top: var(--nav-offset);
+}
+
+
+/* === FAST spinning rings around profile picture === */
+
+
+
+
+/* === Spin the profile picture itself === */
+
+
+
+/* === Profile picture motion (only) === */
+
+  to   { transform: rotate(360deg); }
+}
+
+  50%  { transform: translateY(-10px) rotate(0); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* Force the portrait image to both float and rotate, without affecting anything else */
+
+
+
+/* === Profile picture: perfectly round, clipped inside circle === */
+.portrait-wrap {
+  position: relative;
+  width: 260px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: visible;             /* ensure image fits inside circle */
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 25%, #f5ffff, #eaf6ff 60%, #e5f7ef 100%);
+  box-shadow: var(--shadow);
+}
+
+
+
+
+
+
+/* === Fast rotating orbit rings around the profile picture === */
+
+  to   { transform: rotate(360deg) scale(var(--s,1)); }
+}
+.portrait-wrap { position: relative; }
+
+
+
+
+
+
+/* === Ensure orbit rings show outside the portrait circle === */
+
+
+
+
+
+
+/* === Continuous animated orbit rings === */
+
+  to   { transform: rotate(360deg) scale(var(--s,1)); }
+}
+
+
+
+
+
+
+
+
+/* === Profile picture spinning === */
+
+  to   { transform: rotate(360deg); }
+}
+
+
+
+/* === Smaller orbit rings close to picture === */
+
+
+
+
+
+
+
+/* === Profile picture floating only === */
+
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+/* === Smaller, slower, professional orbit rings === */
+
+
+
+
+
+
+
+/* === Very slow continuous orbit rings === */
+@keyframes spinRings {
+  from { transform: rotate(0deg) scale(var(--s,1)); }
+  to   { transform: rotate(360deg) scale(var(--s,1)); }
+}
+
+.portrait-wrap .ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.portrait-wrap .ring1 {
+  border: 2px dashed rgba(14,165,233,.45);
+  --s:1.05;
+  animation: spinRings 25s linear infinite;
+}
+.portrait-wrap .ring2 {
+  border: 2px dashed rgba(34,197,94,.45);
+  --s:1.08;
+  animation: spinRings 35s linear infinite reverse;
+}
+.portrait-wrap .ring3 {
+  border: 2px dashed rgba(99,102,241,.35);
+  --s:1.12;
+  animation: spinRings 45s linear infinite;
+}
+
+
+/* === Gentle floating for the profile picture (up/down only) === */
+@keyframes floatPic {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+.portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  animation: floatPic 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+.portrait-wrap .ring4 {
+  border: 2px dashed rgba(168,85,247,.35);
+  --s:1.18;
+  animation: spinRings 55s linear infinite;
+}
+.portrait-wrap .ring5 {
+  border: 2px dashed rgba(236,72,153,.35);
+  --s:1.22;
+  animation: spinRings 65s linear infinite reverse;
+}
+
+
+/* === CTA buttons (match "Let's Collaborate") for side tabs === */
+.btn-cta{
+  background: linear-gradient(90deg, #0ea5e9 0%, #22c55e 100%);
+  color:#fff !important;
+  border:none;
+  box-shadow: 0 10px 24px rgba(34,197,94,.25), 0 3px 10px rgba(14,165,233,.18);
+}
+.btn-cta:hover{ filter: brightness(0.97); transform: translateY(-1px); }
+.btn-cta:active{ transform: translateY(0); }
+
+
+/* === Navbar icons === */
+.nav-links .nl{
+  display:inline-flex; align-items:center; gap:8px;
+}
+.nav-ic{ width:16px; height:16px; stroke: currentColor; fill:none; stroke-width:1.8; }
+.nav-links .nl span{ line-height:1; }
+
+
+
+/* Clean block layout for Books list */
+.books-list { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.6rem 0; }
+.books-list div { display: flex; align-items: center; gap: 0.5rem; }
+.books-list img { width: 20px; height: 20px; flex-shrink: 0; }
+.books-list a { text-decoration: none; color: inherit; font-weight: 500; }
+.books-list a:hover { text-decoration: underline; color: #2e8b57; }

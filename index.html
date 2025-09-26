@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Aruna M. Jarju</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    /* Fallback if CSS file is missing */
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;margin:0}
+  </style>
+</head>
+<body>
+  <!-- Live animated background -->
+  <canvas id="live-bg" aria-hidden="true"></canvas>
+
+  <!-- Top Navbar -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home">Dr. Aruna Jarju</a>
+      <nav class="nav-links">
+        <a href="#research" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><line x1="16" y1="16" x2="21" y2="21"/></svg><span>Research</span></a>
+        <a href="#pubs" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="8" height="16" rx="2"/><path d="M12 6h8v12h-8"/></svg><span>Publications</span></a>
+        <a href="#education" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 12v5a8 4 0 0 0 10 0v-5"/></svg><span>Education</span></a>
+        <a href="#experience" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span>Experience</span></a>
+        <a href="#certs" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M8 12l-2 8 6-3 6 3-2-8"/></svg><span>Certificates</span></a>
+        <a href="#contact" class="nl"><svg class="nav-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contact</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-2col reveal" id="home">
+    <div class="hero-left">
+      <div class="pill float-slow">Distinguished Scholar &amp; AI Consultant</div>
+      <h1 class="glow-text"><span>Dr. Aruna</span> M. Jarju</h1>
+      <p class="lede">
+        Bridging the realms of <b class="hl">Data Science</b>, <b class="hl">Education</b>, and <b class="hl">Artificial Intelligence</b>.
+      </p>
+      <p class="blurb">
+        Passionate about the transformative power of technology and learning. With expertise across data-driven research,
+        higher education leadership, and interdisciplinary collaboration, I craft practical, human-centered solutions.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:arunamjarju@gmail.com">Let's Collaborate</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/aruna-m-jarju-bs-bba-mba-ph-d-92165573" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="cta-row secondary">
+        <a class="btn btn-ghost" href="#appointment">Book An Appointment</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right float-medium tilt" data-tilt>
+      <div class="portrait-wrap">
+        <img src="d3.png" alt="Portrait of Dr. Aruna M. Jarju">
+        <span class="ring ring1"></span>
+        <span class="ring ring2"></span>
+        <span class="ring ring3"></span>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat float-delay-1 tilt" data-tilt>
+          <div class="stat-emoji" aria-hidden="true">📚</div>
+          <div class="stat-label">Publications</div>
+          <div class="stat-num">17+</div>
+        </div>
+        <div class="stat float-delay-2 tilt" data-tilt>
+          <div class="stat-emoji" aria-hidden="true">👀</div>
+          <div class="stat-label">Reads</div>
+          <div class="stat-num">24k+</div>
+        </div>
+        <div class="stat float-delay-3 tilt" data-tilt>
+          <div class="stat-emoji" aria-hidden="true">🎓</div>
+          <div class="stat-label">Experience</div>
+          <div class="stat-num">15+ yrs</div>
+        </div>
+      </div>
+
+      <div class="contact-mini reveal-up">
+        <div class="cm-title">Global Remote Consultant</div>
+        <div class="cm-line">📧 <a href="mailto:arunamjarju@gmail.com">arunamjarju@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections -->
+  <section id="research" class="placeholder reveal">
+  <h2>Research</h2>
+  <div class="two-col">
+    <div>
+      <p>My research spans <b>data fusion</b>, <b>machine learning</b>, and <b>applied data science</b> for societal impact—
+      including technology in education, climate and agriculture analytics, GIS, and sustainable energy systems.</p>
+      <ul class="check">
+        <li><b>Technology & Education:</b> Comparative analyses of technology integration in urban vs. rural schools in The Gambia (ISRES, 2023).</li>
+        <li><b>Sustainability & Energy:</b> Waste-to-energy and biogas feasibility studies, and environmental assessment projects.</li>
+        <li><b>Agriculture & Climate:</b> Rainfall variability, agricultural productivity, and adaptation strategies.</li>
+      </ul>
+      <p>See more on <a class="link" target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Aruna-Jarju">ResearchGate</a> and
+      <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=7oB9KCwAAAAJ">Google Scholar</a>.</p>
+    </div>
+    <aside class="sidecard">
+      <div class="kv">
+        <div><span>Publications</span><b>17+</b></div>
+        <div><span>Reads</span><b>24k+</b></div>
+        <div><span>Citations</span><b>32</b></div>
+      </div>
+      <a class="btn btn-cta wfull" target="_blank" rel="noopener" href="https://essopenarchive.org/users/951080-aruna-m-jarju?articles_format=grid">View Articles</a>
+    </aside>
+  </div>
+</section>
+
+  <section id="pubs" class="placeholder reveal">
+    <h2>Publications</h2>
+    <p>See Google Scholar profile for full list.</p>
+    <p><a class="link" href="https://scholar.google.com/citations?user=7oB9KCwAAAAJ" target="_blank" rel="noopener">View on Google Scholar ↗</a></p>
+  </section>
+
+  <section id="education" class="placeholder reveal">
+  <h2>Education</h2>
+  <div class="two-col">
+    <div>
+      <ul class="timeline">
+        <li>
+          <div class="dot"></div>
+          <div class="tl-body">
+            <h3>Ph.D. (Big Data / Data Fusion & ML)</h3>
+            <p><b>University of Twente</b></p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="tl-body">
+            <h3>MBA (Computer Information Systems)</h3>
+            <p><b>Monroe College</b></p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="tl-body">
+            <h3>Bachelor of Science</h3>
+            <p>Computer Science</p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="tl-body">
+            <h3>Bachelor (Health Services & Environment)</h3>
+            <p>Undergraduate foundation in health and environmental systems</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <aside class="sidecard">
+      <h4>Teaching & Mentorship</h4>
+      <p>Course development and mentorship in Information Technology and Data Science at Monroe University.</p>
+      <a class="btn btn-cta wfull" target="_blank" rel="noopener" href="https://catalog.monroeu.edu/catalog/schools-academic-programs/information-technology/">School of IT</a>
+    </aside>
+  </div>
+</section>
+  
+<section id="experience" class="placeholder reveal">
+  <h2>Experience</h2>
+  <div class="two-col">
+    <div>
+      <div class="xp">
+        <h3>Director, KGS – Academic Support Services</h3>
+        <p><b>Monroe University</b> · Leadership of academic support operations, tutoring programs, and data-informed student success initiatives.</p>
+      </div>
+      <div class="xp">
+        <h3>Information Technology Faculty</h3>
+        <p><b>Monroe University</b> · Teaching programming, systems, applied analytics, and supervising research projects in Computer Science and Data Science.</p>
+      </div>
+      <div class="xp">
+        <h3>Independent Researcher & Consultant</h3>
+        <p>Projects across education technology, sustainable energy systems, GIS, and data-driven policy.</p>
+      </div>
+      <div class="xp">
+        <h3>Energy Resources Specialist – India</h3>
+        <p>Conducted applied research on <b>renewable energy adoption</b>, <b>rural electrification</b>, and <b>biogas systems</b> in India to promote sustainable resource management.</p>
+      </div>
+      <div class="xp">
+        <h3>Consultant – United Nations</h3>
+        <p>Collaborated with <b>UNO initiatives</b> focusing on education, sustainable energy, and capacity-building programs in developing regions.</p>
+      </div>
+      <div class="xp">
+        <h3>Advisor – Wardi Projects</h3>
+        <p>Contributed to socio-economic development projects under <b>Wardi</b>, emphasizing education, infrastructure, and data-driven community planning.</p>
+      </div>
+      <div class="xp">
+        <h3>Professional Expertise</h3>
+        <p>Extensive work in <b>Statistics</b>, <b>Business Accounting</b>, <b>Computer Science</b>, and <b>Data Science</b>, combining quantitative methods with applied technology to solve organizational and academic challenges.</p>
+      </div>
+    </div>
+    <aside class="sidecard">
+      <h4>Focus Areas</h4>
+      <ul class="chips">
+        <li>Data Fusion</li><li>Machine Learning</li><li>EdTech</li>
+        <li>GIS</li><li>Waste-to-Energy</li><li>Energy Resources</li>
+        <li>Business Accounting</li><li>Statistics</li>
+      </ul>
+      
+      <h4>Books</h4>
+      <div class="books-list">
+        <div><img src="https://img.icons8.com/color/24/2e8b57/book.png" alt="Book"><a target="_blank" href="https://a.co/d/2ySEJhz"> Foundation of Computer Science</a></div>
+        <div><img src="https://img.icons8.com/color/24/2e8b57/book.png" alt="Book"><a target="_blank" href="https://www.amazon.com/dp/B0F6CWDCTT"> Renewable Energy &amp; Environmental Sustainability in West Africa</a></div>
+        <div><img src="https://img.icons8.com/color/24/2e8b57/book.png" alt="Book"><a target="_blank" href="https://www.amazon.com/dp/B0CCZXNM15"> Aruna’s Journey to Success: From Farming to Innovation and Advocacy</a></div>
+        <div><img src="https://img.icons8.com/color/24/2e8b57/book.png" alt="Book"><a target="_blank" href="https://www.amazon.com/dp/B0C9S3HP85"> Aruna’s Journey: From Farming to Innovation and Advocacy</a></div>
+      </div>
+      <a class="btn btn-cta wfull" target="_blank" rel="noopener" href="https://www.amazon.com/stores/Aruna-M.-Jarju/author/B0CGL8CVJY">View All Books</a>
+
+    </aside>
+  </div>
+</section>
+
+  <section id="certs" class="placeholder reveal">
+  <h2>Certificates</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>CCNA</h3>
+      <p>Cisco Certified Network Associate.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://catalog.monroeu.edu/catalog/faculty/">Listed in Monroe Catalog</a>
+    </article>
+    <article class="card">
+      <h3>CompTIA Network+</h3>
+      <p>Foundational networking skills and infrastructure.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://catalog.monroeu.edu/catalog/faculty/">Listed in Monroe Catalog</a>
+    </article>
+    <article class="card">
+      <h3>Windows Server</h3>
+      <p>Microsoft Windows Server administration.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://catalog.monroeu.edu/catalog/faculty/">Listed in Monroe Catalog</a>
+    </article>
+    <article class="card">
+      <h3>TESOL (100 Hours)</h3>
+      <p>Teaching English to Speakers of Other Languages.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://www.linkedin.com/posts/aruna-m-jarju-bs-bba-mba-ph-d-92165573_activity-6767847012978241536-wCzu">Source</a>
+    </article>
+    <article class="card">
+      <h3>Certified Accounting Paraprofessional (CAP)</h3>
+      <p>Accounting and business competency.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://www.linkedin.com/posts/aruna-m-jarju-bs-bba-mba-ph-d-92165573_activity-6767847012978241536-wCzu">Source</a>
+    </article>
+    <article class="card">
+      <h3>Notary Public & Real Estate Agency (US)</h3>
+      <p>Professional certifications and licensure.</p>
+      <a class="link" target="_blank" rel="noopener" href="https://www.linkedin.com/posts/aruna-m-jarju-bs-bba-mba-ph-d-92165573_activity-6767847012978241536-wCzu">Source</a>
+    </article>
+  </div>
+</section>
+  
+  <!-- Contact -->
+  <section id="contact" class="contact-section reveal">
+    <div class="contact-card">
+      <h2>Get in Touch</h2>
+      <form action="https://formspree.io/f/mayvlqgr" method="POST">
+        <div class="grid">
+          <label>Full Name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <label>Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+      <div class="direct">
+        Or email: <a href="mailto:arunamjarju@gmail.com">arunamjarju@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    © <span id="y"></span> Dr. Aruna M. Jarju — New Rochelle, NY
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Live Background & Effects JS -->
+  <script>
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ===== Animated particles background =====
+    const canvas = document.getElementById('live-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const particles = [];
+    const COUNT = prefersReduced ? 0 : 80;
+
+    function resize(){
+      w = canvas.width = innerWidth * dpr;
+      h = canvas.height = innerHeight * dpr;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    addEventListener('resize', resize, {passive:true});
+    resize();
+
+    function makeParticle(){
+      return {
+        x: Math.random()*innerWidth,
+        y: Math.random()*innerHeight,
+        vx: (Math.random()-.5)*0.6,
+        vy: (Math.random()-.5)*0.6,
+        r: Math.random()*1.8 + 0.6,
+        a: Math.random()*0.6 + 0.2
+      };
+    }
+    for(let i=0;i<COUNT;i++) particles.push(makeParticle());
+
+    function step(){
+      ctx.clearRect(0,0,innerWidth,innerHeight);
+      // soft gradient wash
+      const g = ctx.createRadialGradient(innerWidth*0.7, innerHeight*0.1, 50, innerWidth*0.3, innerHeight*0.9, Math.max(innerWidth, innerHeight));
+      g.addColorStop(0,'rgba(20,200,170,0.05)');
+      g.addColorStop(1,'rgba(14,165,233,0.04)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0,0,innerWidth,innerHeight);
+
+      // draw particles
+      ctx.globalCompositeOperation = 'lighter';
+      particles.forEach(p=>{
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < -50) p.x = innerWidth+50;
+        if(p.x > innerWidth+50) p.x = -50;
+        if(p.y < -50) p.y = innerHeight+50;
+        if(p.y > innerHeight+50) p.y = -50;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(14,165,233,'+p.a+')';
+        ctx.fill();
+      });
+      ctx.globalCompositeOperation = 'source-over';
+      if(!prefersReduced) requestAnimationFrame(step);
+    }
+    step();
+
+    // ===== Tiny parallax tilt on cards & portrait =====
+    const ENABLE_TILT = false;
+    const tilts = ENABLE_TILT ? document.querySelectorAll('[data-tilt]') : [];
+    tilts.forEach(el=>{
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left)/r.width - 0.5;
+        const py = (e.clientY - r.top)/r.height - 0.5;
+        el.style.transform = `perspective(900px) rotateY(${px*8}deg) rotateX(${ -py*8 }deg) translateZ(0)`;
+      });
+      el.addEventListener('mouseleave', ()=>{
+        el.style.transform = '';
+      });
+    });
+
+    // ===== Scroll reveal =====
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal, .reveal-up').forEach(el=>observer.observe(el));
+  })();
+  </script>
+</body>
+</html>
